@@ -1,0 +1,31 @@
+<!-- HEADER -->
+<header class="container">
+	
+  <!-- Logo -->
+  <div id="logo" class="mx-auto">
+    <img src="assets/img/logo.png" alt="Design Group" />
+  </div>
+  
+  <!-- Page Title-->
+  <div class="page-title">
+    <h1>PRODUCTS</h1>
+  </div>
+  
+  <!-- Search -->
+  <div class="top-search">
+    <input type="text" value="" placeholder="search..." id="live-search" />
+    <p id="error-msg">Something went wrong! Please type letters and numbers only!</p>
+  </div>
+  
+  <!-- Lang selector -->
+  <div class="lang-selector">
+    <a href="" id="HU-hu" 
+      [ngClass]="{'active-lang': selectedLanguage=='lang-HU'}"
+      (click)="changeLanguage('lang-HU')" >HU</a> 
+    | 
+    <a href="" id="EN-en"
+    [ngClass]="{'active-lang': selectedLanguage=='lang-EN'}"
+    (click)="changeLanguage('lang-EN')">EN</a>
+  </div>
+
+</header>
