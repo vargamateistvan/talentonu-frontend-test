@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalsService } from '../../common/services/globals.service'
 
-import HUchairs from '../../../assets/data/hu/chairs.json'
-import ENchairs from '../../../assets/data/en/chairs.json'
+import HUProducts from '../../../assets/data/hu/chairs.json'
+import ENProducts from '../../../assets/data/en/chairs.json'
 
 @Component({
   selector: 'product-list',
@@ -10,28 +10,28 @@ import ENchairs from '../../../assets/data/en/chairs.json'
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  chairs = []
+  products = []
 
   constructor(private globals: GlobalsService) { }
 
   ngOnInit() {
-    this.chairs = this.getChairs()
+    this.products = this.getProducts()
   }
 
-  getChairs() {
+  getProducts() {
     const lang = this.globals.selectedLanguage.split("-")[1]
 
     switch (lang) {
       case 'HU': {
-        return HUchairs.data
+        return HUProducts.data
       }
 
       case 'EN': {
-        return ENchairs.data
+        return ENProducts.data
       }
 
       default: {
-        return HUchairs.data
+        return HUProducts.data
       }
     }
   }
