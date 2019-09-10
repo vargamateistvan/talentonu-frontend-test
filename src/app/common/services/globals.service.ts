@@ -8,5 +8,17 @@ export class GlobalsService {
   selectedLanguage = ""
   searchValue = ""
 
+  setSelectedLanguage(language: string) {
+    this.selectedLanguage = language
+  }
+
+  getSelectedLanguage(): string {
+    return this.selectedLanguage
+  }
+
+  setSearchValue(value: string) {
+    this.searchValue = value
+  }
+
   constructor() { }
 }

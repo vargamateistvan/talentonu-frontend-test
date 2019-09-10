@@ -15,17 +15,17 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.errorMessage = document.getElementById('error-msg')
 
-    this.globals.selectedLanguage = localStorage.getItem('selectedLanguage');
+    this.globals.setSelectedLanguage(localStorage.getItem('selectedLanguage'))
     console.log("SELECTED LANG", this.globals.selectedLanguage)
     
-    if (!this.globals.selectedLanguage) {
-      this.globals.selectedLanguage = this.globals.defaultLanguage
+    if (!this.globals.getSelectedLanguage()) {
+      this.globals.setSelectedLanguage(this.globals.defaultLanguage)
       localStorage.setItem("selectedLanguage", this.globals.defaultLanguage)
     }
   }
 
   changeLanguage(language: string) {
-    this.globals.selectedLanguage = language
+    this.globals.setSelectedLanguage(language)
     localStorage.setItem("selectedLanguage", language)
   }
 
@@ -40,6 +40,6 @@ export class HeaderComponent implements OnInit {
     }
 
     this.errorMessage.style.height = '0px'
-    this.globals.searchValue = value
+    this.globals.setSearchValue(value)
   }
 }
