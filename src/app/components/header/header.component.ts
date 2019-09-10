@@ -25,6 +25,7 @@ export class HeaderComponent implements OnInit {
   }
 
   changeLanguage(language: string) {
+    this.globals.selectedLanguage = language
     localStorage.setItem("selectedLanguage", language)
   }
 
