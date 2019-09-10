@@ -7,6 +7,7 @@ import { GlobalsService } from '../../common/services/globals.service'
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  searchInput = ""
 
   constructor(private globals: GlobalsService) { }
 
@@ -20,8 +21,12 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  changeLanguage(language) {
+  changeLanguage(language: string) {
     localStorage.setItem("selectedLanguage", language)
   }
 
+  onSearch(value: string) {
+    console.log("ONSEARCH", value)
+    this.globals.searchValue = value
+  }
 }

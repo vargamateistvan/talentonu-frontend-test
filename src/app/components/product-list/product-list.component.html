@@ -1,5 +1,20 @@
 <section class="products container">
   <div class="row" id="products-wrapper">
-    <product-component *ngFor="let product of products" [product]=product></product-component>
+    <!-- <product-component *ngFor="let product of products" [product]=product></product-component> -->
+
+    <!-- Product -->
+    <article *ngFor="let product of products | productFilter: globals.searchValue" class="product col-3" id="{{product.id}}">
+      <div class="product-image">
+        <img src="assets/img/products/{{product.id}}.jpg" alt="Product {{product.id}}" />
+      </div>
+      <div class="product-title">
+        <h2>{{product.title}}</h2>
+        <h3>CATEGORY {{product.category}}</h3>
+      </div>
+      <div class="product-content">
+        <p>{{product.description}}</p>
+        <a href="" class="more-button">more</a>
+      </div>
+    </article>
   </div>
 </section>

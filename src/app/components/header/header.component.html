@@ -13,7 +13,7 @@
   
   <!-- Search -->
   <div class="top-search">
-    <input type="text" value="" placeholder="search..." id="live-search" />
+    <input type="text" [(ngModel)]="searchInput" placeholder="search..." id="live-search" (keyup)="onSearch(searchInput)"/>
     <p id="error-msg">Something went wrong! Please type letters and numbers only!</p>
   </div>
   
