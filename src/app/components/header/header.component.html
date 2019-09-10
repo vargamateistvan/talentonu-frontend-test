@@ -20,11 +20,11 @@
   <!-- Lang selector -->
   <div class="lang-selector">
     <a href="" id="HU-hu" 
-      [ngClass]="{'active-lang': selectedLanguage=='lang-HU'}"
+      [ngClass]="{'active-lang': globals.selectedLanguage=='lang-HU'}"
       (click)="changeLanguage('lang-HU')" >HU</a> 
     | 
     <a href="" id="EN-en"
-    [ngClass]="{'active-lang': selectedLanguage=='lang-EN'}"
+    [ngClass]="{'active-lang': globals.selectedLanguage=='lang-EN'}"
     (click)="changeLanguage('lang-EN')">EN</a>
   </div>
 
