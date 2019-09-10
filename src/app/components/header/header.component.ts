@@ -8,10 +8,13 @@ import { GlobalsService } from '../../common/services/globals.service'
 })
 export class HeaderComponent implements OnInit {
   searchInput = ""
+  errorMessage = null
 
   constructor(private globals: GlobalsService) { }
 
   ngOnInit() {
+    this.errorMessage = document.getElementById('error-msg')
+
     this.globals.selectedLanguage = localStorage.getItem('selectedLanguage');
     console.log("SELECTED LANG", this.globals.selectedLanguage)
     
@@ -27,6 +30,15 @@ export class HeaderComponent implements OnInit {
 
   onSearch(value: string) {
     console.log("ONSEARCH", value)
+    if (value === "") {
+      return
+    }
+
+    if (!/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/.test(value)) {
+      return this.errorMessage.style.height = '30px'
+    }
+
+    this.errorMessage.style.height = '0px'
     this.globals.searchValue = value
   }
 }
