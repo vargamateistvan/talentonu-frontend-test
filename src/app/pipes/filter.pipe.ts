@@ -8,7 +8,7 @@ export class FilterPipe implements PipeTransform {
 
   transform(products: Product[], filteredValue?: string): Product[] {
     if (!products || !filteredValue) {
-      return products
+      return products.filter(product => product.visible)
     }
 
     return products.filter((product) => {
